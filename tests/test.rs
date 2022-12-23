@@ -1,6 +1,6 @@
 use natural_derive::{Add, AddAssign, From, New, Sub, SubAssign};
 
-#[derive(Debug, PartialEq, Eq, From, Add, AddAssign, Sub, SubAssign, New)]
+#[derive(Debug, PartialEq, Eq, New, From, Add, AddAssign, Sub, SubAssign)]
 struct Kelvin(u32);
 
 #[test]

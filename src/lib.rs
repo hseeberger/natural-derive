@@ -12,7 +12,7 @@ pub fn derive_new(input: TokenStream) -> TokenStream {
         let ty = &field.ty;
         quote! {
             impl #name {
-                fn new(value: #ty) -> Self {
+                pub fn new(value: #ty) -> Self {
                     Self(value)
                 }
             }

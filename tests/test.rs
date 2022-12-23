@@ -1,7 +1,13 @@
-use natural_derive::{Add, AddAssign, Sub, SubAssign};
+use natural_derive::{Add, AddAssign, From, Sub, SubAssign};
 
-#[derive(Debug, PartialEq, Eq, Add, AddAssign, Sub, SubAssign)]
+#[derive(Debug, PartialEq, Eq, From, Add, AddAssign, Sub, SubAssign)]
 struct Kelvin(u32);
+
+#[test]
+fn test_from() {
+    let kelvin: Kelvin = 42.into();
+    assert_eq!(kelvin, Kelvin(42));
+}
 
 #[test]
 fn test_add() {

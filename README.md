@@ -1,6 +1,7 @@
 # natural-derive
 
-Proc macros for naturally deriving basic trait impls for new types. Natural means that the impl for the outer type just delegates to an impl of the inner type.
+Proc macros for naturally deriving basic trait impls for new types, i.e. respecting the structure
+and semantics of the inner type.
 
 ## Example
 

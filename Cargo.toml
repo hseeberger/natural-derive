@@ -1,0 +1,18 @@
+[package]
+name          = "natural-derive"
+description   = "Proc macros for naturally deriving basic trait impls for new types."
+version       = "0.1.0"
+edition       = "2021"
+authors       = [ "Heiko Seeberger <git@heikoseeberger.de>" ]
+license       = "Apache-2.0"
+readme        = "README.md"
+homepage      = "https://github.com/hseeberger/natural-derive"
+repository    = "https://github.com/hseeberger/natural-derive"
+documentation = "https://github.com/hseeberger/natural-derive"
+
+[dependencies]
+syn   = "1.0"
+quote = "1.0"
+
+[lib]
+proc-macro = true

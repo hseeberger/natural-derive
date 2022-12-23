@@ -1,7 +1,12 @@
-use natural_derive::{Add, AddAssign, From, Sub, SubAssign};
+use natural_derive::{Add, AddAssign, From, New, Sub, SubAssign};
 
-#[derive(Debug, PartialEq, Eq, From, Add, AddAssign, Sub, SubAssign)]
+#[derive(Debug, PartialEq, Eq, From, Add, AddAssign, Sub, SubAssign, New)]
 struct Kelvin(u32);
+
+#[test]
+fn test_new() {
+    assert_eq!(Kelvin::new(42), Kelvin(42));
+}
 
 #[test]
 fn test_from() {

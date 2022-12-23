@@ -5,6 +5,22 @@ use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse, Data, DataStruct, DeriveInput, Field, Fields, FieldsUnnamed, Ident};
 
+/// Derive macro generating an impl with a associated `new` function for a new type.
+#[proc_macro_derive(New)]
+pub fn derive_new(input: TokenStream) -> TokenStream {
+    for_new_type(&parse(input).unwrap(), "From", |name, field| {
+        let ty = &field.ty;
+        quote! {
+            impl #name {
+                fn new(value: #ty) -> Self {
+                    Self(value)
+                }
+            }
+        }
+        .into()
+    })
+}
+
 /// Derive macro generating an impl of the trait `std::convert::From` for a new type.
 #[proc_macro_derive(From)]
 pub fn derive_into(input: TokenStream) -> TokenStream {

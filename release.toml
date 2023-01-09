@@ -1,4 +1,2 @@
-pre-release-commit-message = "release: {{crate_name}} v{{version}}"
-tag-message                = "release: {{crate_name}} v{{version}}"
-sign-commit                = true
-sign-tag                   = true
+pre-release-commit-message = "release: {{version}}"
+tag-message                = "release[{{crate_name}}]: {{version}}"

@@ -5,7 +5,6 @@ version       = "0.3.0"
 edition       = "2021"
 authors       = [ "Heiko Seeberger <git@heikoseeberger.de>" ]
 license       = "Apache-2.0"
-readme        = "README.md"
 homepage      = "https://github.com/hseeberger/natural-derive"
 repository    = "https://github.com/hseeberger/natural-derive"
 documentation = "https://github.com/hseeberger/natural-derive"

@@ -13,11 +13,12 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Update Rust
+      - name: Install Rust toolchain
         run: |
           rustup update
           rustup toolchain install nightly
           rustup component add rustfmt --toolchain nightly
+          rustup component add clippy --toolchain nightly
 
       - name: Set up cargo cache
         uses: actions/cache@v3
@@ -32,16 +33,13 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: ${{ runner.os }}-cargo-
 
-      - name: Check code formatting (cargo fmt)
+      - name: Check code format (cargo fmt)
         run: cargo +nightly fmt --check
 
-      - name: Compile (cargo check)
-        env:
-          CARGO_NET_GIT_FETCH_WITH_CLI: true
-        run: cargo check --all-features
-
       - name: Lint (cargo clippy)
-        run: cargo clippy --all-features -- -D warnings
+        run: |
+          cargo clippy --no-deps -- -D warnings
 
-      - name: Test
-        run: cargo test --all-features
+      - name: Test (cargo test)
+        run: |
+          cargo test
